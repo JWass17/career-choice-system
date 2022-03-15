@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+{% load static %}
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Sign Up</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{%static 'authentication/assets/css/main.css' %}" />
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+                <a href="/homepage" class="logo"><strong>CBC</strong> system</a>
+                <ul class="icons">
+                    <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+                    <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+                </ul>
+            </header>
+
+
+            <div class="col-6 col-12-medium">
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    <strong>Registration status message:</strong> {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% endfor %}
+                <!-- Form -->
+                <h3>Registration Page</h3>
+
+                <form method="post" action="/register">
+                    {% csrf_token %}
+                    <div class="row gtr-uniform">
+                        <div class="col-6 col-12-xsmall">
+                            <input type="number" name="username" id="username"  placeholder="Admission number" Required />
+                        </div>
+                        <div class="col-6 col-12-xsmall">
+                            <input type="text" name="fname" id="fname" value="" placeholder="First Name" Required/>
+                        </div>
+                        <div class="col-6 col-12-xsmall">
+                            <input type="text" name="lname" id="lname" value="" placeholder="Last Name" Required/>
+                        </div>
+                        <div class="col-6 col-12-xsmall">
+                            <input type="email" name="email" id="email" value="" placeholder="Email" Required/>
+                        </div>
+                        <div class="col-6 col-12-xsmall">
+                            <input type="password" name="pass1" id="pass1"  placeholder="Password" Required/>
+                        </div>
+                        <div class="col-6 col-12-xsmall">
+                            <input type="password" name="pass2" id="pass2"  placeholder="Confirm Password" Required/>
+                        </div>
+                        <!-- Break -->
+                        <!-- Break -->
+                        <!-- Break -->
+                        <div class="col-12">
+                            <ul class="actions">
+                                <li><input type="submit" value="Sign Up" class="primary"/></li>
+                                <li><a href="/login"class="button">Log In</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+
+
+
+
+
+            <!-- Scripts -->
+            <script src="{%static 'authentication/assets/js/jquery.min.js' %}"></script>
+            <script src="{%static 'authentication/assets/js/browser.min.js' %}"></script>
+            <script src="{%static 'authentication/assets/js/breakpoints.min.js' %}"></script>
+            <script src="{%static 'authentication/assets/js/util.js' %}"></script>
+            <script src="{%static 'authentication/assets/js/main.js' %}"></script>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
