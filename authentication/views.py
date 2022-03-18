@@ -7,13 +7,13 @@ from django.contrib.auth import authenticate, login ,logout
 from django.utils.encoding import force_bytes,force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.sites.shortcuts import get_current_site
-from bs4 import BeautifulSoup
 import requests
 from django.shortcuts import render
 
 
 #Redirection to homepage
 def homepage(request):
+
     return render(request,"authentication/homepage.html")
 #Authentication methods
 #1.Registration method
@@ -26,7 +26,7 @@ def reg_user(request):
         pass1=request.POST["pass1"]
         pass2=request.POST["pass2"]
 
-        if (len(username)!=6):
+        if (len(username)>6):
             messages.error(request,'Please enter a valid admission number')
             return redirect('register')
         if User.objects.filter(username=username):
@@ -73,6 +73,11 @@ def log_in(request):
             first_name=user.first_name
             last_name=user.last_name
             request.session['first_name'] = first_name
+            request.session['last_name'] = last_name
+            request.session['adm_no'] = adm_no
+            request.session.set_expiry=3600
+
+
             return render(request,"authentication/homepage.html", {'first_name':first_name,'last_name':last_name,'adm_no':adm_no})
 
         else:
@@ -85,3 +90,15 @@ def signout(request):
     logout(request)
     messages.success(request,"Signed out successfully")
     return redirect ('homepage')
+
+
+def check_sessions(request):
+    if request.user.is_authenticated:
+        fname=request.session['first_name']
+        return render(request,"authentication/career_choice.html",{'fname':fname})
+    else:
+        messages.error(request,'Please log in to the system')
+        return redirect('homepage')
+
+
+
