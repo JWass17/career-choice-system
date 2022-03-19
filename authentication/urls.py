@@ -12,6 +12,6 @@ path('signout',views.signout,name="signout"),
 
 #Urls for Career guidance
 path('pick_career',views.check_sessions, name="check_sessions"),
-#path('check_marks',views.check_marks, name="check_marks"),
+path('check_marks',views.check_marks, name="check_marks"),
 
 ]
