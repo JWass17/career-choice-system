@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'authentication',
+    'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -71,7 +72,7 @@ TEMPLATES = [
 
 
 #AUTH_USER_MODEL='authentication.Student'
-WSGI_APPLICATION = 'cbc_system.wsgi.application'
+#$WSGI_APPLICATION = 'cbc_system.wsgi.application'
 
 
 # Database
@@ -138,3 +139,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 SESSION_SAVE_EVERY_REQUEST = True
+
+
+

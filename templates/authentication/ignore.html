@@ -1,0 +1,204 @@
+
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+<head>
+    <title> Homepage </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{%static 'authentication/assets/css/main.css' %}" />
+</head>
+
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            {% if user.is_authenticated %}
+            <header id="header">
+                <a href="/homepage">Hello <strong> {{first_name}} {{last_name}}!</strong></a>
+                <a href="/homepage">Your Admission number is <strong> {{adm_no}}!</strong></a>
+                {% else %}
+                {% endif %}
+                <ul class="icons">
+                    <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+                    <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+                </ul>
+            </header>
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                <strong>Message:</strong> {{ message }}
+
+            </div>
+            {% endfor %}
+            <!-- Banner -->
+
+
+            <!-- Section -->
+
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Please Enter your KCSE marks</h2>
+                </header>
+                <div class="posts">
+                    <form method="post" action="/check_marks">
+                        {% csrf_token %}
+
+                        <div class="row gtr-uniform">
+                            <div class="col-6 col-12-xsmall">
+                        <label for="maths">Mathematics</label>
+                        <input type="number" id="maths" placeholder="0" value="0" name="maths" min="0" max="99" Required>
+                            </div>
+
+
+                            <div class="col-6 col-12-xsmall">
+                        <label for="eng">English</label>
+                        <input type="number" id="eng" placeholder="0" value="0" name="eng" min="0" max="99" Required>
+                           </div>
+
+                            <div class="col-6 col-12-xsmall">
+                        <label for="kisw">Kiswahili</label>
+                        <input type="number" id="kisw" placeholder="0" value="0" name="kisw" min="0" max="99" Required>
+                           </div>
+
+                            <div class="col-6 col-12-xsmall">
+                        <label for="phy">Physics</label>
+                        <input type="number" id="phy" placeholder="0" value="0" name="phy" min="0" max="99" >
+                           </div>
+
+                            <div class="col-6 col-12-xsmall">
+                        <label for="chem">Chemistry</label>
+                        <input type="number" id="chem" placeholder="0" value="0" name="chem" min="0" max="99" >
+                            </div>
+
+                            <div class="col-6 col-12-xsmall">
+                        <label for="bio">Biology</label>
+                        <input type="number" id="bio" placeholder="0" value="0" name="bio" min="0" max="99" >
+                            </div>
+
+                            <div class="col-6 col-12-xsmall">
+                        <label for="bied">Bussiness Studies</label>
+                        <input type="number" id="bied" placeholder="0" value="0" name="bied" min="0" max="99" >
+                            </div>
+
+                            <div class="col-6 col-12-xsmall">
+                        <label for="geo">Geography</label>
+                        <input type="number" id="geo" placeholder="0" value="0" name="geo" min="0" max="99" >
+                            </div>
+
+                                <div class="col-6 col-12-xsmall">
+                        <label for="religion">CRE/IRE</label>
+                        <input type="number" id="religion" placeholder="0" value="0" name="religion" min="0" max="99" >
+                                </div>
+
+                               <div class="col-6 col-12-xsmall">
+                        <label for="histo">History</label>
+                        <input type="number" id="histo" placeholder="0" value="0" name="histo" min="0" max="99">
+                               </div>
+
+                               <div class="col-6 col-12-xsmall">
+                        <label for="music">Music</label>
+                        <input type="number" id="music" placeholder="0" value="0" name="music" min="0" max="99">
+                               </div>
+
+                               <div class="col-6 col-12-xsmall">
+                        <label for="agric">Agriculture</label>
+                        <input type="number" id="agric" placeholder="0" value="0" name="agric" min="0" max="99">
+                               </div>
+
+                                   <div class="col-6 col-12-xsmall">
+                                   <label for="comp">Computer</label>
+                        <input type="number" id="comp" placeholder="0" value="0" name="comp" min="0" max="99">
+                                   </div>
+
+                                       <div class="col-6 col-12-xsmall">
+                                       <label for="home_sci">Home Science</label>
+                        <input type="number" id="home_sci" placeholder="0" value="0" name="home_sci" min="0" max="99">
+                                       </div>
+                        </div>
+
+
+                        <div class="col-12">
+                            <ul class="actions">
+                                <li><input type="submit" value="Check Marks" class="primary" /></li>
+                            </ul>
+
+                        </div>
+
+
+
+
+                            <!-- Break -->
+                            <!-- Break -->
+                            <!-- Break -->
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+
+
+
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>Menu</h2>
+                </header>
+                <ul>
+                    <li><a href="/homepage">Home</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Sign up</a></li>
+                    <li><a href="/pick_career">Career Placement</a></li>
+                    <li><a href="/signout">Sign out</a></li>
+                </ul>
+            </nav>
+
+            <!-- Section -->
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Get in touch</h2>
+                </header>
+                <p>We are a very small team and your support will be very much appreciated.Send us your feedback</p>
+                <ul class="contact">
+                    <li class="icon solid fa-envelope"><a href="#">cbc.system@app</a></li>
+                    <li class="icon solid fa-phone">(254) 71479990</li>
+                    <li class="icon solid fa-home">Haile Selassie Avenue, Nairobi CBD<br />
+                        TN 00000-0000</li>
+                </ul>
+            </section>
+
+            <!-- Footer -->
+
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="{%static 'authentication/assets/js/jquery.min.js' %}"></script>
+<script src="{%static 'authentication/assets/js/browser.min.js' %}"></script>
+<script src="{%static 'authentication/assets/js/breakpoints.min.js' %}"></script>
+<script src="{%static 'authentication/assets/js/util.js' %}"></script>
+<script src="{%static 'authentication/assets/js/main.js' %}"></script>
+
+</body>
+</html>

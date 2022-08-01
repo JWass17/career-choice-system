@@ -8,6 +8,7 @@ class Courses(models.Model):
     title = models.CharField(max_length=2550)
     acceptable_grade = models.CharField(max_length=2550)
     short_description = models.CharField(max_length=2550)
+    requirements = models.CharField(max_length=2550,default="N/a")
 
 
 

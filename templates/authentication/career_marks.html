@@ -1,0 +1,126 @@
+
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+<head>
+    <title> Homepage </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{%static 'authentication/assets/css/main.css' %}" />
+</head>
+
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            {% if user.is_authenticated %}
+            <header id="header">
+                <a href="/homepage">Hello <strong> {{f_name}} </strong></a>
+                <a href="/homepage">Your Admission number is <strong> {{num}}!</strong></a>
+                {% else %}
+                {% endif %}
+                <ul class="icons">
+                    <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+                    <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+                </ul>
+            </header>
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                <strong>Message:</strong> {{ message }}
+
+            </div>
+            {% endfor %}
+            <!-- Banner -->
+
+
+            <!-- Section -->
+
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Courses you have qualified for....</h2>
+                </header>
+                <div class="posts">
+                    <article>
+                        <a href="#" class="image"><img src="{%static 'authentication/images/student_runn.jpg' %}" alt="" /></a>
+                        <h3>{{ e_cn }}!</h3>
+                        <p>{{ e_cd }}!</p>
+                        <p>{{ e_reqs }}!</p>
+
+                        <p>{{ average }}!</p>
+                        <p>{{ grade }}!</p>
+                        <ul class="actions">
+                            <li><a href="#" class="button">Read More</a></li>
+                        </ul>
+                    </article>
+
+
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+
+
+
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>Menu</h2>
+                </header>
+                <ul>
+                    <li><a href="/homepage">Home</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Sign up</a></li>
+                    <li><a href="/pick_career">Career Placement</a></li>
+                    <li><a href="/signout">Sign out</a></li>
+                </ul>
+            </nav>
+
+            <!-- Section -->
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Get in touch</h2>
+                </header>
+                <p>We are a very small team and your support will be very much appreciated.Send us your feedback</p>
+                <ul class="contact">
+                    <li class="icon solid fa-envelope"><a href="#">cbc.system@app</a></li>
+                    <li class="icon solid fa-phone">(254) 71479990</li>
+                    <li class="icon solid fa-home">Haile Selassie Avenue, Nairobi CBD<br />
+                        TN 00000-0000</li>
+                </ul>
+            </section>
+
+            <!-- Footer -->
+
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="{%static 'authentication/assets/js/jquery.min.js' %}"></script>
+<script src="{%static 'authentication/assets/js/browser.min.js' %}"></script>
+<script src="{%static 'authentication/assets/js/breakpoints.min.js' %}"></script>
+<script src="{%static 'authentication/assets/js/util.js' %}"></script>
+<script src="{%static 'authentication/assets/js/main.js' %}"></script>
+
+</body>
+</html>
